@@ -23,3 +23,6 @@ Aquí encontrarás dos archivos: **`RandomColor.jsx`** y **`RandomColor.css`**. 
 <div align="center" >
     <img src="./snippetLibrary.gif" width="70%" />
 </div>
+<div align="center" >
+    <img src="./snippetLibrary.gif" width="70%" />
+</div>
