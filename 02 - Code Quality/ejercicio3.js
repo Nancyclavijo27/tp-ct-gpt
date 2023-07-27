@@ -1,37 +1,34 @@
+/**
+ * Genera una cadena formateada a partir de un objeto con valores numéricos.
+ * Si el valor es par, muestra la clave seguida de ' is even.'.
+ * Si el valor es impar, muestra la clave repetida el número de veces del valor.
+ * Luego, repite esta cadena tantas veces como sea la suma de los valores numéricos del objeto.
+ * Finalmente, devuelve la cadena formateada en mayúsculas y al revés.
+ *
+ * @param {Object} obj - El objeto que contiene pares clave-valor.
+ * @returns {string} - Cadena formateada en mayúsculas y al revés.
+ */
 function complicatedLevelThree(obj) {
-   var result = '';
-   var keys = Object.keys(obj);
-   var values = Object.values(obj);
-   var sum = values.reduce((acc, curr) => acc + curr, 0);
+   let result = '';
+   const sum = Object.values(obj).reduce((acc, curr) => acc + curr, 0);
 
-   for (var i = 0; i < keys.length; i++) {
-      var key = keys[i];
-      var value = values[i];
+   for (const [key, value] of Object.entries(obj)) {
       if (value % 2 === 0) {
-         result += key + ' is even. ';
+         result += `${key} is even. `;
       } else {
-         var temp = value;
-         while (temp > 0) {
-            result += key + ', ';
-            temp--;
-         }
+         result += `${key}, `.repeat(value);
       }
    }
 
-   var finalResult = '';
-   var count = 0;
-   while (count < sum) {
-      finalResult += result;
-      count++;
-   }
+   // Repetir la cadena result 'sum' veces
+   const finalResult = result.repeat(sum);
 
-   var reversedResult = finalResult.split('').reverse().join('');
-   var formattedResult = reversedResult.toUpperCase();
-
-   return formattedResult;
+   // Devolver la cadena en mayúsculas y al revés
+   return finalResult.split('').reverse().join('').toUpperCase();
 }
 
-var obj = {
+// Ejemplo de uso
+const obj = {
    a: 2,
    b: 3,
    c: 4,
